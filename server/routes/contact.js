@@ -18,8 +18,6 @@ function requireAuth(req,res,next)
 //connect to our contact model
 let Contact = require('../model/contacts');
 
-//let contactController = require('../controllers/contact');
-
 //GET ROUTE for the contact list page - READ OPERATION
 router.get('/',contactController.displaycontactList);
 
