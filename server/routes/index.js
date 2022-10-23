@@ -18,6 +18,7 @@ router.get('/contact', indexController.displayContactPage);
 
 /* GET Router for displaying the login page*/
 router.get('/login', indexController.displayLoginPage);
+
 /* POST Router for processing the Login Page*/
 router.post('/login', indexController.processLoginPage);
 
