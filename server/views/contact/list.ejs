@@ -1,0 +1,46 @@
+<%- include('../partials/header'); -%>
+<%- include('../partials/main_nav'); -%>
+
+<div class="innerdiv">
+
+<main class="container">
+<div class="row">
+    <div class="col-md-offset-3 col md-8">
+        <h1><%= title %></h1>
+        <%if(typeof displayName =='string' && displayName){%>
+        <a href="/contactList/add" class="btn btn-primary" role="button">
+            <i class ="fas fa-plus-circle"></i>Add a Contact</a>
+            <%}%>
+        <br>
+        <table class = "table table-bordered table-striped table-hover">
+            <tr>
+                <th class="text-content col-2">Title</th>
+                <th class="text-content col-2">Number</th>
+                <th class="text-content col-1">Email</th>
+                <%if(typeof displayName =='string' && displayName){%>
+                <th class="text-content col-1"></th>
+                <th class="text-content col-1"></th>
+                <%}%>
+                </tr>
+           <% for(let count = 0; count<contactList.length; count++){ %>
+            <tr>
+                <td class = "text-center col-2"><%=contactList[count].name%></td>
+                <td class = "text-center col-2"><%=contactList[count].number%></td>
+                <td class = "text-center col-1"><%=contactList[count].email%></td>
+                <!--<td class = "col-6"><%=contactList[count].description%></td>-->
+                <%if(typeof displayName =='string' && displayName){%>
+                <td class ="text-center col-1"><a href="/contactList/edit/<%=contactList[count]._id%>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i>Edit</a></td>
+                <td class ="text-center col-1"><a href="/contactList/delete/<%=contactList[count]._id%>" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a></td>    
+            <%}%>
+            </tr>
+                <%}%>
+            </table>
+
+        </div>
+    </div>
+    </main>
+
+</div>
+    
+<%- include('../partials/bottom_nav'); -%>
+<%- include('../partials/footer'); -%>

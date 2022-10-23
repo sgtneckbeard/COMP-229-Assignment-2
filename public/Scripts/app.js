@@ -9,7 +9,7 @@
                 if(!confirm ("Are you sure"))
                 {
                     event.preventDefault();
-                    window.location.assign("/bookList");
+                    window.location.assign("/contactList");
                 }
             });
         }
