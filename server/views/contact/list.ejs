@@ -29,7 +29,7 @@
                 <td class = "text-center col-1"><%=contactList[count].email%></td>
                 <!--<td class = "col-6"><%=contactList[count].description%></td>-->
                 <%if(typeof displayName =='string' && displayName){%>
-                <td class ="text-center col-1"><a href="/contactList/edit/<%=contactList[count]._id%>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i>&nbsp;Edit</a></td>
+                <td class ="text-center col-1"><a href="/contactList/edit/<%=contactList[count]._id%>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i>&nbsp;Update</a></td>
                 <td class ="text-center col-1"><a href="/contactList/delete/<%=contactList[count]._id%>" class="btn btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Delete</a></td>    
             <%}%>
             </tr>
