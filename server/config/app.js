@@ -18,7 +18,7 @@ mongoose.connect(db.URI);
 let mongoDB = mongoose.connection;
 mongoDB.on('error',console.error.bind(console,'connection Error:'));
 mongoDB.once('open',()=>{
-  console.log('connected to MongoDB...');
+  console.log('connected to MongoDB!!!');
 })
 
 let indexRouter = require('../routes/index');
@@ -43,11 +43,8 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 app.use(session({
   secret:'SomeSecret',
   saveUninitialized:false,
-<<<<<<< HEAD
-  resave:false
-=======
+  //resave:false
   reSave:false
->>>>>>> 6fe48f3c64e315231db0268ff2db189540e2d78e
 }));
 
 //initialize flash

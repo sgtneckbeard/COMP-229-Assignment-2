@@ -1,7 +1,7 @@
 (function(){
     function start()
     {
-        console.log("App started...");
+        console.log("App.js has started...");
         let deleteButton = document.querySelectorAll('.btn-danger')
         for(button of deleteButton)
         {

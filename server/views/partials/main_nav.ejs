@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">COMP229</a>
+      <a class="navbar-brand" href="/"><img class="navImg" src="https://lh3.googleusercontent.com/B22NwIfhNEtuVCFJMuOn4oJ6O-Bq210DiL3K9xLnBCAfTlNcVQYEKq7bkbM-k6Ngd5YZXWBzWdJZVnyx8WddBrYY751V5nWQjrbD1FsZ_aqhNEF5ev3ljgwmz2bF0GpWIhh8-IOW60k=w2400" alt="logo">Assignment 2</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -46,7 +46,12 @@
             <a class="nav-link active" aria-current="page" href="/contact"><i class="fas fa-mobile-alt"></i>Contact</a>
             <%}%>
           </li>
-          
+          <%if(typeof displayName =='string' && displayName){%>
+            <li class="navbar-text"><i class="fas fa-lg fa-user"></i>Welcome, <%=displayName%></li>
+            <li class="nav-item"><a href="/logout" class="nav-link"><i class="fas fa-lg fa-sign-out-alt"></i>logout</a></li>
+            <%}else{%>
+              <li class ="nav-item"><a href="/login" class="nav-link"><i class="fas fa-lg fa-sign-in-alt"></i>Login</a>a></li>
+              <%}%>
       </div>
     </div>
   </nav>
