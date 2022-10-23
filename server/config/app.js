@@ -13,14 +13,14 @@ let flash = require('connect-flash');
 
 
 let mongoose = require('mongoose');
-let db=require('./db');
+let db = require('./db');
 
 //point mongoose to the db URI
 mongoose.connect(db.URI);
 let mongoDB = mongoose.connection;
 mongoDB.on('error',console.error.bind(console,'connection Error:'));
 mongoDB.once('open',()=>{
-  console.log('connected to MongoDB!!!');
+  console.log('Connection to MongoDB successful...');
 })
 
 let indexRouter = require('../routes/index');
@@ -83,9 +83,9 @@ app.use(function(err, req, res, next) {
 res.locals.message = err.message;
 res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error',{title:'Error'});
+// render the error page
+res.status(err.status || 500);
+res.render('error',{title:'Error'});
 });
 
 module.exports = app;
