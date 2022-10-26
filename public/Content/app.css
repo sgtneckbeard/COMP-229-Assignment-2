@@ -1,4 +1,4 @@
-/* custom css*/
+/* CSS styling */
 
 p {
     color: rgb(133, 0, 0);
@@ -110,4 +110,8 @@ img {
 .imgError {
     width: 40%;
     height: auto;
+}
+
+.form-control input[type=text] {
+    width: 10%;
 }

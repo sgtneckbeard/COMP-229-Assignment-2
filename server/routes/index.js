@@ -9,8 +9,8 @@ router.get('/', indexController.displayHomePage);
 router.get('/home', indexController.displayHomePage); 
 /* GET About Us page. */
 router.get('/about', indexController.displayAboutPage);
-/* GET products page. */
-router.get('/products', indexController.displayProductsPage);
+/* GET projects page. */
+router.get('/projects', indexController.displayProductsPage);
 /* GET Services page. */
 router.get('/services', indexController.displayServicesPage);
 /* GET Contact Us page. */
@@ -18,6 +18,7 @@ router.get('/contact', indexController.displayContactPage);
 
 /* GET Router for displaying the login page*/
 router.get('/login', indexController.displayLoginPage);
+
 /* POST Router for processing the Login Page*/
 router.post('/login', indexController.processLoginPage);
 

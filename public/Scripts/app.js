@@ -6,10 +6,10 @@
         for(button of deleteButton)
         {
             button.addEventListener('click',(event)=>{
-                if(!confirm ("Are you sure"))
+                if(!confirm ("Confirm Delete?"))
                 {
                     event.preventDefault();
-                    window.location.assign("/bookList");
+                    window.location.assign("/contactList");
                 }
             });
         }

@@ -15,7 +15,7 @@ module.exports.displayAboutPage = (req,res,next)=>{
 }
 
 module.exports.displayProductsPage = (req,res,next)=>{
-    res.render('Products',{title:'Products',displayName:req.user?req.user.displayName:''});
+    res.render('projects',{title:'Projects',displayName:req.user?req.user.displayName:''});
 }
 module.exports.displayServicesPage = (req,res,next)=>{
     res.render('Services',{title:'Services',displayName:req.user?req.user.displayName:''});
@@ -61,7 +61,7 @@ module.exports.processLoginPage = (req,res,next)=>{
             {
                 return next(err);
             }
-            return res.redirect('/bookList');
+            return res.redirect('/contactList');
         });
         
     })(req,res,next);
@@ -114,7 +114,7 @@ module.exports.processRegisterPage = (req,res,next)=>{
             // if no error exists, then registration is successful
             // redirect the user and authenticate them
             return passport.authenticate('local')(req,res,()=>{
-                res.redirect('/bookList')
+                res.redirect('/contactList')
             });
         }
     });

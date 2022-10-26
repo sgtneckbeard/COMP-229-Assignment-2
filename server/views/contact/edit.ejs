@@ -1,0 +1,56 @@
+<%-include ('../partials/header.ejs');%>
+<%-include ('../partials/main_nav.ejs');%>
+
+<!--content for the Add page-->
+
+<div class="innerdiv">
+
+<div class = "container">
+    <div class = "row">
+        <div class ="offset-md-3 col-md-6">
+        <h1><%= title %></h1>
+        <form class = "form" method="POST">
+
+            <div class ="form group">
+                <label for="nameTextField">Contact Name</label>
+                <input type="text" class="form-control"
+                id="nameTextField"
+                placeholder="Contact's Name"
+                name="name" 
+                value="<%= contact.name %>"
+                required>
+            </div>
+
+            <div class ="form group">
+                <label for="numberTextField">Number</label>
+                <input type="text" class="form-control"
+                id="numberTextField"
+                placeholder="Contact's Number"
+                name="number" 
+                value="<%= contact.number %>"
+                required>
+            </div>
+
+            <div class ="form group">
+                <label for="emailTextField">Email</label>
+                <input type="text" class="form-control"
+                id="emailTextField"
+                placeholder="Contact's email address"
+                name="email" 
+                value="<%= contact.email %>"
+                required>
+            </div>
+
+            <button class = "btn btn-primary" type="submit"><i class ="fas fa-edit"></i>submit</button>
+            <a href='/contactList' class="btn btn-warning"><i class="fas fa-undo"></i>cancel</a>  
+        
+        </form>
+        </div>
+        </div>
+    </div>
+
+</div>
+  
+<%- include('../partials/bottom_nav'); -%>
+<%- include('../partials/footer'); -%>
+
