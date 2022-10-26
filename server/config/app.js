@@ -74,7 +74,19 @@ passport.deserializeUser(User.deserializeUser());
 let jwtOptions = {};
 jwtOptions.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken();
 jwtOptions.secretOrKey = db.Secret;
+let strategy = new JWTStrategy(jwtOptions,(jwt_payload,done)=>{
+  User.findById(jwt_payload.id)
+  .then(user=>{
+    return done(null,user);
+  })
+  .catch(err=>{
+    return done(err,false);
+  });
+});
 
+passport.use(strategy);
+
+//routing
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/contactList',contactRouter);
