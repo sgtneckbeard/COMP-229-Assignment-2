@@ -3,12 +3,17 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+//cross-origin resource sharing
+let cors = require('cors');
 
 //modules for authentication
 let session = require('express-session');
 let passport = require('passport');
+let passportJWT = require('passport-jwt');
 let passportLocal = require('passport-local');
+let JWTStrategy = passportJWT.Strategy;
 let localStrategy = passportLocal.Strategy;
+let ExtractJWT = passportJWT.ExtractJwt;
 let flash = require('connect-flash');
 
 
@@ -54,7 +59,7 @@ app.use(flash());
 //initialize passport
 app.use(passport.initialize());
 
-//passport user Configuration
+//passport user configuration
 app.use(passport.session());
 
 //Create a user model instance
@@ -65,6 +70,10 @@ passport.use(User.createStrategy());
 //serialize and deserialize the user info
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+let jwtOptions = {};
+jwtOptions.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken();
+jwtOptions.secretOrKey = db.Secret;
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
